@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TuHuella_Digital | El Grimorio del Conocimiento</title>
+<!-- Fonts: Noto Serif for the classic, scholarly feel -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'hogwarts-dark': '#1a120b',
+            'hogwarts-gold': '#d4af37',
+            'hogwarts-gold-light': '#f1d279',
+            'parchment': '#f4eccf',
+            'wood': '#3d2b1f',
+          },
+          fontFamily: {
+            serif: ['"Noto Serif"', 'serif'],
+          },
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles for Magical Aesthetic -->
+<style data-purpose="layout-and-textures">body {
+    background-color: #1a120b;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAMeMpGkb9FpEwtkX38OlYaJTAyTZpvfBIU2ZlMdhEeDB4lGI7qqjg3aTpp0kw2PGmJ5Ahu9-Abnn3hOpYWcVoOplcfiXT9wXWRGoaK-Po0pryFBkGRvnBUAVSa3Sz6XCCDtiwSr465H34gr_iIO4lfECR55zyEOOK9tyT4oggvI_0qbcATP1McEPkvmqBwmo3cqCur_uEYkKQk0d6f56dvwlm4pEjxmvIR_PInVRW2n3N9tKd8SV1r7MP3S8JGwHlYgiXxAoITvk0);
+    color: #f4eccf;
+    overflow-x: hidden
+    }
+.parchment-container {
+    background-color: #f4eccf;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDGIfnbnDJjxbYzr98Qh8C-JeQ2kNQOCqOhMyxZaMSoqR9fMwpVC-S9Si5zbOr7ZQKgyHUmFlVhOW60WcYNk6p-uo1qvGcMUU1g_PM03Cy1nd2KCeRYsYsjSwAXBHiMX-Kl8y23zg9FLrYmN_LzWSAKLZkAjXWs2MSpWMm3aA5cfw0XDgl9zQmqRXeqv-3iR_FW-ykWg5XaYvAJ3tRDrRqJslB0ZOwDKS9amYCeWUYAGCohm7HFR5iJUOIBMcZa2yYDcn6K7N63JFI);
+    color: #3d2b1f;
+    border: 8px double #3d2b1f;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(139, 69, 19, 0.2)
+    }
+.gold-border {
+    border: 2px solid #d4af37
+    }
+.gold-text-glow {
+    color: #d4af37;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.6)
+    }
+/* Magical Glow for Rare Items */
+.rare-glow {
+    position: relative;
+    box-shadow: 0 0 15px #d4af37;
+    animation: pulse-gold 3s infinite alternate
+    }
+@keyframes pulse-gold {
+    from {
+        box-shadow: 0 0 10px #d4af37;
+        } to {
+        box-shadow: 0 0 25px #f1d279;
+        }
+    }</style>
+<style data-purpose="animations">
+    /* Floating Dust Particles */
+    #dust-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(212, 175, 55, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      50% { opacity: 0.8; }
+      100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="font-serif antialiased">
+<!-- BEGIN: Dust Particles Container -->
+<div data-purpose="magical-ambience" id="dust-container"></div>
+<!-- END: Dust Particles Container -->
+<!-- BEGIN: MainHeader -->
+<header class="relative z-10 border-b-4 border-hogwarts-gold bg-wood/90 py-6 px-4 sticky top-0 shadow-2xl">
+<div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-hogwarts-gold rounded-full flex items-center justify-center shadow-lg border-2 border-hogwarts-gold-light">
+<span class="text-wood font-bold text-2xl">TD</span>
+</div>
+<h1 class="text-2xl font-bold tracking-widest gold-text-glow uppercase">TuHuella_Digital</h1>
+</div>
+<nav class="flex gap-8">
+<a class="hover:text-hogwarts-gold transition-colors duration-300 font-bold uppercase tracking-tighter" href="#grimorio">Grimorio</a>
+<a class="hover:text-hogwarts-gold transition-colors duration-300 font-bold uppercase tracking-tighter" href="#biblioteca">Biblioteca</a>
+<a class="hover:text-hogwarts-gold transition-colors duration-300 font-bold uppercase tracking-tighter" href="#boveda">Bóveda</a>
+<a class="hover:text-hogwarts-gold transition-colors duration-300 font-bold uppercase tracking-tighter" href="#ajustes">Ajustes</a>
+</nav>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative h-[80vh] flex items-center justify-center overflow-hidden border-b-8 border-wood">
+<div class="absolute inset-0 z-0">
+<!-- Placeholder for a mystical library background -->
+<img alt="Mystical Background" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb0VQvdZcWclDUK_WIy30uRTHYCAO8isdkKcqit2JCaEF_SqFCVnIoQ8mkkconL2Hlcre0QFb8ubM-bqks0822vPSkZ1Ix1wOYc_UXb6a-_AvZ5tAGUccbwXs2THPqvUk0a50JBgdGsE_BMut3qBBZQpDYbPeL4ibFGcnEr4hJqRuetj-L7xx0fXBESv3foaMCmYhy80-2FzhF_Zp0XyjwxCXRLVJmCR4VuyXVEufOHIQFUAE1V0VUTZCCDST85tJGZ8dclqEF4sE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-hogwarts-dark to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<h2 class="text-5xl md:text-7xl font-bold gold-text-glow mb-6 leading-tight">Revela tu Destino Digital</h2>
+<p class="text-xl md:text-2xl text-parchment italic mb-10 leading-relaxed">Donde el código se encuentra con la magia antigua. Tu historia, preservada en pergaminos de luz.</p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="px-8 py-3 bg-hogwarts-gold text-wood font-bold rounded-sm shadow-lg hover:bg-hogwarts-gold-light transition-all transform hover:scale-105 border-2 border-wood">
+            Inscribirse en la Logia
+          </button>
+<button class="px-8 py-3 bg-transparent text-hogwarts-gold font-bold rounded-sm border-2 border-hogwarts-gold hover:bg-hogwarts-gold/10 transition-all">
+            Consultar Oráculo
+          </button>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: FeaturedBooks (Librería Mágica) -->
+<section class="py-20 bg-hogwarts-dark/50 px-4" id="biblioteca">
+<div class="container mx-auto">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold gold-text-glow mb-4">Librería Mágica</h3>
+<div class="h-1 w-24 bg-hogwarts-gold mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Book Item 1 (Rare) -->
+<div class="parchment-container p-6 flex flex-col items-center rare-glow transform -rotate-1 hover:rotate-0 transition-transform cursor-pointer">
+<div class="w-full h-48 bg-wood mb-4 shadow-inner border-2 border-wood/50 flex items-center justify-center overflow-hidden">
+<img alt="Libro" class="object-contain w-32" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh4iuwBwK7KC3u4Lth7rjDhrdXqVhCGt1vX0eXySAZlU-Rdz-KVHB6gCYrC8zG2_X3RSHLv6oD-QqFNhEH4Xt-tiOZEOqE1oIB-jTmTYuzVGmltIvWxR71Aa1lKJeo9-WP_E2NIMxPRceclsgtogRl1TC8KnBzQSdP1ouq0D58MhZW7zsfq_L6rQAicYqImefcHt09eHebZ5cqfYUkr1t7QTqVZXJvTwAlNR9Po7oqBIJtfUsesupRrAJINMY9ovwfdpo2v0pBlG0"/>
+</div>
+<h4 class="text-xl font-bold mb-2">Codex Aura</h4>
+<p class="text-sm italic text-center">Secretos de la encriptación etérea.</p>
+<span class="mt-4 text-xs uppercase font-bold text-hogwarts-gold bg-wood px-2 py-1">Objeto Reliquia</span>
+</div>
+<!-- Book Item 2 -->
+<div class="parchment-container p-6 flex flex-col items-center transform rotate-1 hover:rotate-0 transition-transform cursor-pointer">
+<div class="w-full h-48 bg-wood mb-4 shadow-inner border-2 border-wood/50 flex items-center justify-center overflow-hidden">
+<img alt="Libro" class="object-contain w-32" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5RWz5SutA-L9OntLBpk1_Bf96gaR8HA9f3-MaDHynJ2a72HX6B_sA00I6a9oq1bc76HEgITZTQUX3Kfl9h7FafHGLh8s1QwpUHeETW3MJdrZsfgofWof5y7O08NfDNHsCMwzaOb_juQouSCgijXE6P0gsWWz7z8K9miS2t58IblMeN43j4F8k5CK_SzmvISPhAKU7XXckawQ6_ZxUsL4soKJvpYnaKZv3FShu4UCTv6vZScV98x-AxQiHpwzBaxcMhiHCIV8MCpU"/>
+</div>
+<h4 class="text-xl font-bold mb-2">Sintaxis Oscura</h4>
+<p class="text-sm italic text-center">Compendio de lenguajes olvidados.</p>
+</div>
+<!-- Book Item 3 -->
+<div class="parchment-container p-6 flex flex-col items-center transform -rotate-2 hover:rotate-0 transition-transform cursor-pointer">
+<div class="w-full h-48 bg-wood mb-4 shadow-inner border-2 border-wood/50 flex items-center justify-center overflow-hidden">
+<img alt="Libro" class="object-contain w-32" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA-HBVz_jm_8JKQxuYa70d5q6WsdUsnZbbcyJL4u1S3p7hCPRD5eq10FhscehdRZcBQkzGCNbLRtrCwntlLGqTPXjbtPjeJJOU7hSMC6iC-P52zbYfbXvw_z84sC8pCCLhw5SDDI6MgEyDhPt_jK_4nYGH2nOVLq8RlTVYF4U__icHbJ0NMiiONAXhBkDY7o-GvmI_ugNY5zXLBB6eR6kG_2nr5ZvGUOAjYzEdoJ02tWyg_OGL95nWLiOjNaROis5rRCjZgBkPm1s"/>
+</div>
+<h4 class="text-xl font-bold mb-2">Protocolos de Alquimia</h4>
+<p class="text-sm italic text-center">Transmutación de datos en oro.</p>
+</div>
+<!-- Book Item 4 (Rare) -->
+<div class="parchment-container p-6 flex flex-col items-center rare-glow transform rotate-2 hover:rotate-0 transition-transform cursor-pointer">
+<div class="w-full h-48 bg-wood mb-4 shadow-inner border-2 border-wood/50 flex items-center justify-center overflow-hidden">
+<img alt="Libro" class="object-contain w-32" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJwW3Eg8TcS6KNPyhISVrBeaWk54cYCpvHt5jv-6Mlnr2jAYQGo0aKnozgcEYE5hCxtN8KAlk_STH1JJb9L4lACDOY5SOfhBPqUhJBJJ45qLd8D8OuxblWk6b5nvcxNP4LbQ76Uff_Ddd20AybL4c1KAtbaVzUKQOw7zQy17_p_ejyieOocYryN9vH20AHsB2QMXppWIwfU5XEsdJcfzt_QMqvKVKDxAgb3lQy45BW50EQISBi4UbwQUQ5OZvyjcproILCpg2-XV4"/>
+</div>
+<h4 class="text-xl font-bold mb-2">Scriptum Infinitum</h4>
+<p class="text-sm italic text-center">El bucle que nunca duerme.</p>
+<span class="mt-4 text-xs uppercase font-bold text-hogwarts-gold bg-wood px-2 py-1">Objeto Legendario</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: FeaturedBooks -->
+<!-- BEGIN: ScrollsSection (Pergaminos de Almas) -->
+<section class="py-20 px-4 bg-[url('https://www.transparenttextures.com/patterns/black-paper.png')]" id="grimorio">
+<div class="container mx-auto max-w-5xl">
+<div class="text-center mb-16">
+<h3 class="text-4xl font-bold gold-text-glow mb-4">Pergaminos de Almas</h3>
+<p class="text-parchment/80 italic">Pensamientos y Poemas de la Logia</p>
+</div>
+<div class="space-y-12">
+<!-- Scroll 1 -->
+<div class="parchment-container p-10 relative md:mx-20" data-purpose="scroll-content">
+<div class="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-full bg-wood rounded-full border-l-4 border-hogwarts-gold hidden md:block"></div>
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-full bg-wood rounded-full border-r-4 border-hogwarts-gold hidden md:block"></div>
+<article class="text-center">
+<h4 class="text-2xl font-bold mb-6 italic underline decoration-wood/30">El Código del Destino</h4>
+<p class="text-lg leading-relaxed italic mb-4">
+                "En el silencio de la terminal, donde los bits susurran verdades,<br/>
+                escribimos la historia de un mañana que ya es hoy.<br/>
+                No somos solo datos, somos el eco de una voluntad<br/>
+                forjada en el fuego de la lógica y la magia del soñar."
+              </p>
+<p class="text-right font-bold text-wood/70">— Gran Maestre Digital</p>
+</article>
+</div>
+<!-- Scroll 2 -->
+<div class="parchment-container p-10 relative md:mx-20" data-purpose="scroll-content">
+<div class="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-full bg-wood rounded-full border-l-4 border-hogwarts-gold hidden md:block"></div>
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-full bg-wood rounded-full border-r-4 border-hogwarts-gold hidden md:block"></div>
+<article class="text-center">
+<h4 class="text-2xl font-bold mb-6 italic underline decoration-wood/30">La Sombra del Servidor</h4>
+<p class="text-lg leading-relaxed italic mb-4">
+                "Bajo la luz del monitor, la sombra se alarga,<br/>
+                buscando el rincón donde el bug se esconde.<br/>
+                Paciencia de sabio, mano de arquitecto,<br/>
+                el sistema respira, el alma responde."
+              </p>
+<p class="text-right font-bold text-wood/70">— Cronista de la Logia</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ScrollsSection -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-wood border-t-4 border-hogwarts-gold py-12 px-4 relative z-10">
+<div class="container mx-auto text-center">
+<div class="mb-8">
+<h5 class="text-hogwarts-gold font-bold text-lg mb-4">Propiedad de la Logia Digital</h5>
+<p class="text-parchment/60 max-w-md mx-auto italic">Toda sabiduría contenida en este grimorio digital está protegida por antiguos sellos de seguridad y cifrado inquebrantable.</p>
+</div>
+<div class="flex justify-center gap-6 mb-8 text-hogwarts-gold-light">
+<a class="hover:text-white" href="#">Hechizos de Privacidad</a>
+<span>•</span>
+<a class="hover:text-white" href="#">Términos del Juramento</a>
+<span>•</span>
+<a class="hover:text-white" href="#">Mapa del Castillo</a>
+</div>
+<p class="text-sm text-hogwarts-gold/40">© 1892 - 2024 TuHuella_Digital. Todos los derechos reservados por el Ministerio de Datos.</p>
+</div>
+</footer>
+<!-- END: Footer -->
+<!-- BEGIN: Floating Dust Script -->
+<script data-purpose="dust-animation">
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('dust-container');
+      const particleCount = 40;
+
+      for (let i = 0; i < particleCount; i++) {
+        createParticle(container);
+      }
+
+      function createParticle(parent) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 4 + 1 + 'px';
+        particle.style.width = size;
+        particle.style.height = size;
+        
+        resetParticle(particle);
+        parent.appendChild(particle);
+
+        particle.addEventListener('animationiteration', () => {
+          resetParticle(particle);
+        });
+      }
+
+      function resetParticle(p) {
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.top = Math.random() * 100 + 'vh';
+        p.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
+        p.style.opacity = Math.random() * 0.5;
+      }
+    });
+  </script>
+<!-- END: Floating Dust Script -->
+</body></html>
